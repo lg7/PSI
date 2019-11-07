@@ -5,5 +5,3 @@ Projekt zespołowy
 Temat: System zarządzający pracą w bibliotece
 
 Liczba osób: 4
-
-Temat:
