@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "http://krywiak.com.pl",
+        "secure": false,
+        "loglevel": "debug"
+    }
+}
