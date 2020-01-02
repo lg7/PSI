@@ -37,28 +37,25 @@ export class AppComponent {
     // return this.ksiegozbior = this.http.get(this.adress);
    }*/
   //1. Wypożyczanie książki
-  get_id_czytelnika_wypozyczanie() {
-    this.httpService.get_id_czytelnika_wypozyczanie("Krzysztof Krywiak").subscribe(dane => {console.log(dane)});
+  get_id_czytelnika_wypozyczanie(ImieNazwisko: string) {
+    this.httpService.get_id_czytelnika_wypozyczanie(ImieNazwisko).subscribe(dane => {console.log(dane)});
   }
   data=[];
 
   //POST
-  wypozycz_ksiazke() {
-    const obiekt: Wypozyczksiazke=({
-      idCzyt:'1',
-      idWypoz:'1'
-      
-    });
-    this.httpService.wypozycz_ksiazke(obiekt,'4','14263').subscribe(dane=>{console.log(dane)});
+  
+  wypozycz_ksiazke(id_czytelnika: number,id_książki: number) {
+    const obiekt: Wypozyczksiazke=({});
+    this.httpService.wypozycz_ksiazke(obiekt,id_czytelnika,id_książki).subscribe(dane=>{console.log(dane)});
    }
 
-  get_wypozyczenia_czytelnika_wypozyczanie() { 
-    this.httpService.get_wypozyczenia_czytelnika_wypozyczanie(2).subscribe((dane)=>{this.data=dane; console.log(dane)});
+  get_wypozyczenia_czytelnika_wypozyczanie(id: number) { 
+    this.httpService.get_wypozyczenia_czytelnika_wypozyczanie(id).subscribe((dane)=>{this.data=dane; console.log(dane)});
     
   }
 
-  get_imienazwisko_czytelnika_wypozyczanie() { 
-    this.httpService.get_imienazwisko_czytelnika_wypozyczanie(2).subscribe((dane)=>{console.log(dane)});
+  get_imienazwisko_czytelnika_wypozyczanie(id: number) { 
+    this.httpService.get_imienazwisko_czytelnika_wypozyczanie(id).subscribe((dane)=>{console.log(dane)});
   }
 
   get_czytelnicy_wypozyczanie() { 
@@ -68,24 +65,28 @@ export class AppComponent {
 
   //2. Zwracanie ksiażki
 
-  get_id_czytelnika_oddawanie() { }
+  get_id_czytelnika_oddawanie(ImieNazwisko: string) { 
+    this.httpService.get_id_czytelnika_oddawanie(ImieNazwisko).subscribe(dane=>{console.log(dane)});
+  }
 
 
   //POST 
-  oddaj_ksiazke() {
-    
+  oddaj_ksiazke(id_czytelnika: number,id_książki: number) {
+    const obiekt: Wypozyczksiazke=({});
+    this.httpService.oddaj_ksiazke(obiekt,id_czytelnika,id_książki).subscribe(dane=>{console.log(dane)});
+ 
    }
 
-  get_wypozyczenia_czytelnika_oddawanie() { 
+  get_wypozyczenia_czytelnika_oddawanie(id: number) { 
     
    
-    this.httpService.get_wypozyczenia_czytelnika_oddawanie(2).subscribe(dane=>{console.log(dane)});
+    this.httpService.get_wypozyczenia_czytelnika_oddawanie(id).subscribe(dane=>{console.log(dane)});
   }
   
 
-  get_imienazwisko_czytelnika_oddawanie() { 
+  get_imienazwisko_czytelnika_oddawanie(id: number) { 
    
-   // this.get_imienazwisko_czytelnika_oddawanie(2).subscribe(dane=>{console.log(dane)});
+    this.httpService.get_imienazwisko_czytelnika_oddawanie(id).subscribe(dane=>{console.log(dane)});
   }
 
   get_czytelnicy_oddawanie() { 
@@ -104,25 +105,31 @@ export class AppComponent {
 
 
   //4. Czytelnicy
-  get_czytelnicy_czytelnicy() {
-    this.httpService.get_czytelnicy_czytelnicy('1A').subscribe(dane=>{console.log(dane)});
+  get_czytelnicy_czytelnicy(klasa: string) {
+    this.httpService.get_czytelnicy_czytelnicy(klasa).subscribe(dane=>{console.log(dane)});
    }
 
 
-  get_id_czytelnika_czytelnicy() { 
-    this.httpService.get_id_czytelnika_czytelnicy('Krzysztof%20Krywiak').subscribe(dane=>{console.log(dane)});
+  get_id_czytelnika_czytelnicy(ImieNazwisko: string) { 
+    this.httpService.get_id_czytelnika_czytelnicy(ImieNazwisko).subscribe(dane=>{console.log(dane)});
   }
 
   //POST
-  insert_czytelnik() { 
-    //this.httpService..subscribe(dane=>{console.log(dane)});
+  insert_czytelnik(ImieNazwisko: string, klasa: string) { 
+    const obiekt: Wypozyczksiazke=({});
+    this.httpService.insert_czytelnik(obiekt,ImieNazwisko,klasa).subscribe(dane=>{console.log(dane)});
   }
 
   //POST
-  update_czytelnik() { }
+  update_czytelnik(IdCzytelnika:string, ImieNazwisko:string,Klasa:string,Uwagi:string) {
+    const obiekt: Wypozyczksiazke=({});
+    this.httpService.update_czytelnik(obiekt,IdCzytelnika,ImieNazwisko,Klasa,Uwagi).subscribe(dane=>{console.log(dane)});
+  
+   }
 
 
-  get_czytelnik() {this.httpService.get_czytelnik(2).subscribe(dane=>{console.log(dane)}); }
+  get_czytelnik(id:number) {
+    this.httpService.get_czytelnik(id).subscribe(dane=>{console.log(dane)}); }
 
   //5.Księgozbiór
   get_ksiegozbior() { this.httpService.get_ksiegozbior().subscribe(dane=>{console.log(dane)});}

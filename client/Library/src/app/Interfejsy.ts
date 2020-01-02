@@ -29,3 +29,7 @@ export interface Wypozyczksiazke{
 	idCzyt?: string; 
 	idWypoz?: string;
 }
+export interface Iczytelnika{
+	idCzyt?: string; 
+	idWypoz?: string;
+}
