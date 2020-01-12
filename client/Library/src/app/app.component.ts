@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Czytelnicy, Ksiegozbior, Wypozyczenia,Wypozyczksiazke } from './Interfejsy';
-import { Observable } from "rxjs/Observable";
+//import { Observable } from "rxjs/Observable";
+import {Observable, of} from 'rxjs'; 
 import { HttpService } from '../app/http.service'
 
 @Component({
