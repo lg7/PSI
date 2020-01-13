@@ -1,0 +1,17 @@
+<br>
+<table class="table table-hover">
+  <thead>
+    <tr style="font-size: large; background-color: #e9ecef;">
+      <th scope="col" >Imie i nazwisko</th>
+      <th scope="col">Klasa</th>
+      <th scope="col">Uwagi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let d of data">
+      <th>{{d.imie_nazwisko}}</th>
+      <th>{{d.klasa}}</th>
+      <th>{{d.uwagi}} </th>
+    </tr>
+  </tbody>
+</table>
