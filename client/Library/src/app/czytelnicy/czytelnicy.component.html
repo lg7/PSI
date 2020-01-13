@@ -1,8 +1,43 @@
 <br>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        </div>
+        <input type="text" class="form-control" placeholder="Imie i nazwisko" aria-label="Klasa"
+          aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        </div>
+        <input type="text" class="form-control" placeholder="Klasa" aria-label="Klasa"
+          aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        </div>
+        <input type="text" class="form-control" placeholder="Uwagi" aria-label="Uwagi"
+          aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-md-">
+      <button type="button" class="btn btn-primary" >Dodaj nowego czytelnika</button>
+    </div>
+  </div>
+</div>
+
+<br>
 <table class="table table-hover">
   <thead>
     <tr style="font-size: large; background-color: #e9ecef;">
-      <th scope="col" >Imie i nazwisko</th>
+      <th scope="col">Imie i nazwisko</th>
       <th scope="col">Klasa</th>
       <th scope="col">Uwagi</th>
     </tr>
@@ -15,3 +50,5 @@
     </tr>
   </tbody>
 </table>
+
+<button (click)="insert_czytelnik()">addPost</button>

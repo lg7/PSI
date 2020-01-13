@@ -9,19 +9,21 @@ import { HttpService } from './http.service';
 import { KsiegozbiorComponent } from './ksiegozbior/ksiegozbior.component';
 import { CzytelnicyComponent } from './czytelnicy/czytelnicy.component';
 import { WypozyczeniaComponent } from './wypozyczenia/wypozyczenia.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     KsiegozbiorComponent,
     CzytelnicyComponent,
-    WypozyczeniaComponent
+    WypozyczeniaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Ksiegozbior } from '../Interfejsy';
+import { Ksiegozbior, Czytelnicy } from '../Interfejsy';
 import { HttpService } from '../http.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { HttpService } from '../http.service';
 })
 export class CzytelnicyComponent implements OnInit {
   public data: any;
+  czytelnicy: Czytelnicy[] = [];
 
   constructor(private httpService: HttpService) { }
 
@@ -16,6 +17,19 @@ export class CzytelnicyComponent implements OnInit {
     this.httpService.get_czytelnicy().subscribe(dane => {
       this.data = dane;
       var sample = JSON.stringify(dane);
+    });
+  }
+
+  insert_czytelnik() {
+    const p: Czytelnicy = ({
+      imie_nazwisko: 'kuba',
+      klasa: 'piąta',
+      uwagi: 'nie ma'
+    });
+
+    this.httpService.addPost(p).subscribe(post => {
+      this.czytelnicy.push(p);
+      console.log(p);
     });
   }
 

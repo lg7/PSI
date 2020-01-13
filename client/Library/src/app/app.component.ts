@@ -131,7 +131,7 @@ export class AppComponent {
   //POST
   insert_czytelnik(ImieNazwisko: string, klasa: string) {
     const obiekt: Wypozyczksiazke = ({});
-    this.httpService.insert_czytelnik(obiekt, ImieNazwisko, klasa).subscribe(dane => { console.log(dane) });
+    this.httpService.insert_czytelnik(ImieNazwisko, klasa).subscribe(dane => { console.log(dane) });
   }
 
   //POST
