@@ -36,8 +36,7 @@ class Czytelnicy extends CI_Controller {
 		$imie_nazwisko_temp = $imie_nazwisko;
 		$imie_nazwisko = str_replace('%20', ' ', $imie_nazwisko_temp);
 
-		//$output = $this -> Wypozyczanie_model ->get_id_czytelnika( $imie_nazwisko );
-		$output = $this -> Wypozyczanie_model ->get_id_czytelnika( 'Tyma Irena' );
+		$output = $this -> Wypozyczanie_model ->get_id_czytelnika( $imie_nazwisko );
 		echo json_encode( $output);
 	}
 
