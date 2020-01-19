@@ -46,12 +46,13 @@ class Czytelnicy_model extends CI_Model
 
 	}
 
-	public function insert_czytelnik ( $imie_nazwisko =true, $klasa = true )
+	public function insert_czytelnik ( $imie_nazwisko =true, $klasa = true, $uwagi = false )
 	{	
 
 		$czytelnik = array(
    		 'imie_nazwisko' => $imie_nazwisko,
-   		 'klasa' => $klasa
+			'klasa' => $klasa,
+			'Uwagi' => $uwagi
         );
 		$this->db->insert('czytelnicy', $czytelnik);
 

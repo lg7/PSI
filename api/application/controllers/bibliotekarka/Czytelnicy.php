@@ -44,11 +44,11 @@ class Czytelnicy extends CI_Controller {
 	
 	public function insert_czytelnik( $imie_nazwisko =true, $klasa = true )
 	{	
-		$this -> Czytelnicy_model -> insert_czytelnik($imie_nazwisko, $klasa);
+		$this -> Czytelnicy_model -> insert_czytelnik($imie_nazwisko, $klasa, $uwagi);
 	}
 
 
-	public function update_czytelnik($id_czytelnika = true,  $imie_nazwisko =true, $klasa = true, $uwagi = false )
+	public function update_czytelnik($id_czytelnika = true,  $imie_nazwisko =true, $klasa = true, $uwagi = false, , $uwagi = false )
 	{	
 
 		$this -> Czytelnicy_model -> update_czytelnik($id_czytelnika, $imie_nazwisko, $klasa, $uwagi );
