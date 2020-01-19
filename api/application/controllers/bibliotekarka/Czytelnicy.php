@@ -22,6 +22,14 @@ class Czytelnicy extends CI_Controller {
 
 	}
 
+	public function get_czytelnicy_wszyscy()
+	{
+		
+		$output = $this -> Czytelnicy_model ->get_czytelnicy_wszyscy();
+		echo json_encode( $output);
+
+	}
+
 	public function get_id_czytelnika ( $imie_nazwisko = false)
 	{
 		

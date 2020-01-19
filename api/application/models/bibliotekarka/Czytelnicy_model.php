@@ -15,6 +15,16 @@ class Czytelnicy_model extends CI_Model
 				return $q;
 	}
 
+	public function get_czytelnicy_wszyscy()
+	{
+				
+				$this->db->select( '*');
+				$this->db->from('czytelnicy');
+				$this->db->order_by("czytelnicy.imie_nazwisko","inc");
+				$q = $this->db->get();
+				$q = $q->result();
+				return $q;
+	}
 
 	public function get_id_czytelnika ( $imie_nazwisko = false )
 	{	
