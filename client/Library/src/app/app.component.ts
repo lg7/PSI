@@ -47,6 +47,7 @@ export class AppComponent {
     this.loadwypozyczenia = true;
   }
 
+
   // 1. Wypożyczanie książki
   get_id_czytelnika_wypozyczanie(ImieNazwisko: string) {
     this.httpService.get_id_czytelnika_wypozyczanie(ImieNazwisko).subscribe(dane => { console.log(dane) });
@@ -119,19 +120,14 @@ export class AppComponent {
 
 
   //4. Czytelnicy
-  get_czytelnicy_czytelnicy(klasa: string) {
-    this.httpService.get_czytelnicy_czytelnicy(klasa).subscribe(dane => { console.log(dane) });
-  }
-
-
-  get_id_czytelnika_czytelnicy(ImieNazwisko: string) {
+   get_id_czytelnika_czytelnicy(ImieNazwisko: string) {
     this.httpService.get_id_czytelnika_czytelnicy(ImieNazwisko).subscribe(dane => { console.log(dane) });
   }
 
   //POST
-  insert_czytelnik(ImieNazwisko: string, klasa: string) {
+  insert_czytelnik(ImieNazwisko: string, klasa: string, uwagi: string) {
     const obiekt: Wypozyczksiazke = ({});
-    this.httpService.insert_czytelnik(ImieNazwisko, klasa).subscribe(dane => { console.log(dane) });
+    //this.httpService.insert_czytelnik(ImieNazwisko, klasa, uwagi).subscribe(dane => { console.log(dane) });
   }
 
   //POST

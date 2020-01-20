@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Ksiegozbior, Czytelnicy } from '../Interfejsy';
+import { Ksiegozbior, Czytelnicy, Wypozyczksiazke } from '../Interfejsy';
 import { HttpService } from '../http.service';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-czytelnicy',
@@ -11,26 +14,63 @@ export class CzytelnicyComponent implements OnInit {
   public data: any;
   czytelnicy: Czytelnicy[] = [];
 
-  constructor(private httpService: HttpService) { }
+  imie = new FormControl('');
+  klasa = new FormControl('');
+  uwagi = new FormControl('');
+
+  constructor(private formBuilder: FormBuilder, private httpService: HttpService) { }
 
   ngOnInit(): void {
-    this.httpService.get_czytelnicy().subscribe(dane => {
-      this.data = dane;
-      var sample = JSON.stringify(dane);
-    });
-  }
+     this.httpService.get_czytelnicy().subscribe(dane => {
+       this.data = dane;
+     });
+   }
 
-  insert_czytelnik() {
+
+   onSubmit() {
     const p: Czytelnicy = ({
-      imie_nazwisko: 'kuba',
-      klasa: 'piąta',
-      uwagi: 'nie ma'
+      imie_nazwisko: this.imie.value,
+      klasa: this.klasa.value,
+      uwagi: this.uwagi.value
     });
 
-    this.httpService.addPost(p).subscribe(post => {
-      this.czytelnicy.push(p);
-      console.log(p);
-    });
+    this.httpService
+       .insert_czytelnik(p.imie_nazwisko, p.klasa, p.uwagi)
+       .subscribe(post => {
+         this.czytelnicy.push(p);
+         this.httpService.get_czytelnicy().subscribe(dane => {
+          this.data = dane;
+        });
+       });
+
   }
+
+  /*
+   insert_czytelnikk() {
+     const p: Czytelnicy = ({
+       id_czytelnika: '2',
+       imie_nazwisko: 'imie',
+       klasa: 'klasa',
+       uwagi: 'uwagi'
+     });
+
+     const obiekt: Wypozyczksiazke = ({});
+
+     this.httpService
+       .insert_czytelnik(p.imie_nazwisko, p.klasa, p.uwagi)
+       .subscribe(post => {
+         this.czytelnicy.push(p);
+         console.log(p);
+       });
+
+     this.httpService
+       .update_czytelnik(obiekt, p.id_czytelnika, p.imie_nazwisko, p.klasa, p.uwagi)
+       .subscribe(post => {
+         this.czytelnicy.push(p);
+         console.log(p);
+       });
+   }
+*/
+
 
 }

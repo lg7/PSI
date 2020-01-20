@@ -1,16 +1,28 @@
 import { Injectable } from "@angular/core";
 import { Czytelnicy, Ksiegozbior, Wypozyczenia, Wypozyczksiazke } from './Interfejsy';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpHeaders } from '@angular/common/http';
+import { catchError, retry } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { Config } from 'protractor';
 
-
-
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable()
 export class HttpService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+
+
+   }
+
 
   //1. Wypożyczanie książki
   get_id_czytelnika_wypozyczanie(ImieNazwisko: string) {
@@ -77,13 +89,13 @@ export class HttpService {
 
   //4. Czytelnicy
   get_czytelnicy(): Observable<Array<Czytelnicy>> {
-    return this.http.get<Array<Czytelnicy>>('http://krywiak.com.pl/api/bibliotekarka/czytelnicy/get_czytelnicy_wszyscy');
+    return this.http.get<Array<Czytelnicy>>('http://krywiak.com.pl/api/bibliotekarka/czytelnicy/get_czytelnicy/');
   }
 
 
-  get_czytelnicy_czytelnicy(klasa: string): Observable<Array<Czytelnicy>> {
-    return this.http.get<Array<Czytelnicy>>('http://krywiak.com.pl/api/bibliotekarka/czytelnicy/get_czytelnicy/' + klasa);
-  }
+//  get_czytelnicy_czytelnicy(klasa: string): Observable<Array<Czytelnicy>> {
+//    return this.http.get<Array<Czytelnicy>>('http://krywiak.com.pl/api/bibliotekarka/czytelnicy/get_czytelnicy/' + klasa);
+//  }
 
 
   get_id_czytelnika_czytelnicy(ImieNazwisko: string) {
@@ -96,13 +108,9 @@ export class HttpService {
 
 
   // POST
-  insert_czytelnik(ImieNazwisko: string, klasa: string) {
-    return this.http.post('http://krywiak.com.pl/api/bibliotekarka/czytelnicy/insert_czytelnik/' + ImieNazwisko, + '/' + klasa);
-  }
-
-
-  addPost(post: Czytelnicy): Observable<Czytelnicy> {
-    return this.http.post<Czytelnicy>('http://krywiak.com.pl/api/bibliotekarka/czytelnicy/insert_czytelnik/', + post);
+  insert_czytelnik(ImieNazwisko: string, klasa: string, uwagi: string) {
+    // tslint:disable-next-line: max-line-length
+    return this.http.post('http://krywiak.com.pl/api/bibliotekarka/czytelnicy/insert_czytelnik/' + ImieNazwisko + '/' + klasa + '/' + uwagi, null);
   }
 
 
@@ -122,5 +130,10 @@ export class HttpService {
   get_ksiegozbior(): Observable<Array<Ksiegozbior>> {
     return this.http.get<Array<Ksiegozbior>>('http://krywiak.com.pl/api/bibliotekarka/ksiegozbior/get_ksiegozbior');
   }
+
+  get_ksiazka(ksiazka: string) {
+    return this.http.get<Ksiegozbior>('http://krywiak.com.pl/api/bibliotekarka/ksiegozbior/get_ksiazka/' + ksiazka);
+  }
+
 
 }

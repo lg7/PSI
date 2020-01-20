@@ -1,0 +1,55 @@
+<h2 mat-dialog-title>Wypożyczanie książki</h2>
+<mat-dialog-content class="mat-typography">
+
+  <form  (ngSubmit)="onSubmit()">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text" class="form-control" placeholder="Numer inwentarza" aria-label="Klasa"
+              aria-describedby="basic-addon1"  [formControl]="numer_inwentarza">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text" class="form-control" placeholder="Imie i nazwisko czytelnika" aria-label="Klasa"
+              aria-describedby="basic-addon1"  [formControl]="imie_nazwisko">
+          </div>
+        </div>
+        <div class="col-md-">
+          <button type="submit" class="btn btn-primary" >Wyświetl czy jest czytelnik</button>
+        </div>
+      </div>
+
+<app-alerts></app-alerts>
+    </div>
+  </form>
+
+
+
+
+  <table class="table table-hover">
+    <thead>
+      <tr style="font-size: large; background-color: #e9ecef;">
+        <th scope="col">Numer inventarza</th>
+        <th scope="col">Tytuły</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of dataNazwy">
+        <th>{{d.nr_inwentarza}}</th>
+        <th>{{d.tytul}}</th>
+      </tr>
+    </tbody>
+  </table>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>

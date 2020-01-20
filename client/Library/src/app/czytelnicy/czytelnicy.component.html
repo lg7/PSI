@@ -1,37 +1,38 @@
-<br>
-
-<div class="container">
-  <div class="row">
-
-    <div class="col-sm">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
+<form  (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+          </div>
+          <input type="text" class="form-control" placeholder="Imie i nazwisko" aria-label="Klasa"
+            aria-describedby="basic-addon1"  [formControl]="imie">
         </div>
-        <input type="text" class="form-control" placeholder="Imie i nazwisko" aria-label="Klasa"
-          aria-describedby="basic-addon1">
       </div>
-    </div>
-    <div class="col-sm">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
+      <div class="col-sm">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+          </div>
+          <input type="text" class="form-control" placeholder="Klasa" aria-label="Klasa"
+            aria-describedby="basic-addon1"  [formControl]="klasa">
         </div>
-        <input type="text" class="form-control" placeholder="Klasa" aria-label="Klasa"
-          aria-describedby="basic-addon1">
       </div>
-    </div>
-    <div class="col-sm">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
+      <div class="col-sm">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+          </div>
+          <input type="text" class="form-control" placeholder="Uwagi" aria-label="Uwagi"
+            aria-describedby="basic-addon1"  [formControl]="uwagi">
         </div>
-        <input type="text" class="form-control" placeholder="Uwagi" aria-label="Uwagi"
-          aria-describedby="basic-addon1">
       </div>
-    </div>
-    <div class="col-md-">
-      <button type="button" class="btn btn-primary" >Dodaj nowego czytelnika</button>
+      <div class="col-md-">
+        <button type="submit" class="btn btn-primary" >Dodaj nowego czytelnika</button>
+      </div>
     </div>
   </div>
-</div>
+</form>
+
+<br>
 
 <br>
 <table class="table table-hover">
@@ -40,15 +41,15 @@
       <th scope="col">Imie i nazwisko</th>
       <th scope="col">Klasa</th>
       <th scope="col">Uwagi</th>
+
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let d of data">
       <th>{{d.imie_nazwisko}}</th>
       <th>{{d.klasa}}</th>
-      <th>{{d.uwagi}} </th>
+      <th>{{d.Uwagi}} </th>
     </tr>
   </tbody>
 </table>
 
-<button (click)="insert_czytelnik()">addPost</button>
