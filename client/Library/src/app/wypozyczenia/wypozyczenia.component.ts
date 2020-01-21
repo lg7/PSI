@@ -96,26 +96,22 @@ export class WypozyczComponentOkno {
       .subscribe(dane => {
           this.odebraneID = dane;
           if (this.odebraneID != null) {
-            console.log('id nr odebrany', this.odebraneID.id_czytelnika);
-                  
-            this.httpService.wypozycz_ksiazke2(this.odebraneID.id_czytelnika, this.numer_inwentarza2)
-            .subscribe(response => {
-                this.odebraneID = response;
-                if (this.odebraneID != null) {
-                  console.log('id nr odebrany', this.odebraneID.id_czytelnika);
-                  console.log('response' + response);
-      
+            console.log('id nr odebrany', this.odebraneID.id_czytelnika);          
+              this.httpService.get_ksiazka(this.numer_inwentarza2).subscribe(dane => {
+                this.odebranaKsiazka = dane;
+                if (this.odebranaKsiazka != null) {
+                  console.log('Ksiazka jest w bazie', this.odebranaKsiazka);
+                  this.httpService.wypozycz_ksiazke2(this.odebraneID.id_czytelnika, this.numer_inwentarza2).subscribe(response => {  });
+                  this.alerts.setMessage('Książka wypożyczona poprawnie', 'error');
                 } else {
-                  this.alerts.setMessage('O rany! Nie ma takiego czytelnika!', 'error');
-                  console.log('response' + response);
+                  this.alerts.setMessage('O rany! Nie ma książki o takim numerze!', 'error');
+                  console.log('Nie ma takiej ksiazki');
                 }
-      
               });
           } else {
             this.alerts.setMessage('O rany! Nie ma takiego czytelnika!', 'error');
             console.log('Nie ma takiego czytelnika');
           }
-
         });
   }
 
@@ -141,7 +137,7 @@ export class WypozyczComponentOkno {
 
         });
 
-    this.httpService.get_ksiazka(ksiazka.nr_inwentarza).subscribe(dane => {
+    this.httpService.get_ksiazka(this.numer_inwentarza2).subscribe(dane => {
       this.odebranaKsiazka = dane;
       if (this.odebranaKsiazka != null) {
         console.log('Ksiazka jest w bazie', this.odebranaKsiazka);

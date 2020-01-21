@@ -137,7 +137,7 @@ export class HttpService {
     return this.http.get<Array<Ksiegozbior>>('http://krywiak.com.pl/api/bibliotekarka/ksiegozbior/get_ksiegozbior');
   }
 
-  get_ksiazka(ksiazka: string) {
+  get_ksiazka(ksiazka: number) {
     return this.http.get<Ksiegozbior>('http://krywiak.com.pl/api/bibliotekarka/ksiegozbior/get_ksiazka/' + ksiazka);
   }
 
