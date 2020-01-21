@@ -8,7 +8,7 @@
           <div class="input-group mb-3">
             <div class="input-group-prepend">
             </div>
-            <input type="text" class="form-control" placeholder="Numer inwentarza" aria-label="Klasa"
+            <input type="text" [(ngModel)]="numer_inwentarza2" class="form-control" placeholder="Numer inwentarza" aria-label="Klasa"
               aria-describedby="basic-addon1"  [formControl]="numer_inwentarza">
           </div>
         </div>
@@ -16,12 +16,15 @@
           <div class="input-group mb-3">
             <div class="input-group-prepend">
             </div>
-            <input type="text" class="form-control" placeholder="Imie i nazwisko czytelnika" aria-label="Klasa"
+            <input type="text" [(ngModel)]="imie_nazwisko2" class="form-control" placeholder="Imie i nazwisko czytelnika" aria-label="Klasa"
               aria-describedby="basic-addon1"  [formControl]="imie_nazwisko">
           </div>
         </div>
         <div class="col-md-">
           <button type="submit" class="btn btn-primary" >Wyświetl czy jest czytelnik</button>
+        </div>
+        <div class="col-md-">
+          <button type="submit" (click)="wypozycz_ksiazke()" class="btn btn-primary" >Wypożysz Ksiażkę</button>
         </div>
       </div>
 

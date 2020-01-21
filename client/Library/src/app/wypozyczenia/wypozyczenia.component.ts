@@ -85,6 +85,40 @@ export class WypozyczComponentOkno {
     this.dialogRef.close();
   }
 
+  imie_nazwisko2 : string;
+  numer_inwentarza2 : number;
+
+  wypozycz_ksiazke() : void {
+      console.log("Imie i Nazwisko:" + this.imie_nazwisko2);
+      console.log("Numer inwentarza" + this.numer_inwentarza2);
+      this.httpService
+      .get_id_czytelnika_wypozyczanie(this.imie_nazwisko2)
+      .subscribe(dane => {
+          this.odebraneID = dane;
+          if (this.odebraneID != null) {
+            console.log('id nr odebrany', this.odebraneID.id_czytelnika);
+                  
+            this.httpService.wypozycz_ksiazke2(this.odebraneID.id_czytelnika, this.numer_inwentarza2)
+            .subscribe(response => {
+                this.odebraneID = response;
+                if (this.odebraneID != null) {
+                  console.log('id nr odebrany', this.odebraneID.id_czytelnika);
+                  console.log('response' + response);
+      
+                } else {
+                  this.alerts.setMessage('O rany! Nie ma takiego czytelnika!', 'error');
+                  console.log('response' + response);
+                }
+      
+              });
+          } else {
+            this.alerts.setMessage('O rany! Nie ma takiego czytelnika!', 'error');
+            console.log('Nie ma takiego czytelnika');
+          }
+
+        });
+  }
+
   onSubmit() {
     const czytelnik: Czytelnicy = ({
       imie_nazwisko: this.imie_nazwisko.value,
@@ -116,6 +150,8 @@ export class WypozyczComponentOkno {
         console.log('Nie ma takiej ksiazki');
       }
     });
+
+ 
 
   }
 

@@ -37,6 +37,12 @@ export class HttpService {
     //post problem przekazac obiekt
   }
 
+   //POST
+   wypozycz_ksiazke2(a: number, b: number) {
+    return this.http.get('http://krywiak.com.pl/api/bibliotekarka/wypozyczanie/wypozycz_ksiazke/' + a + '/' + b);
+    //post problem przekazac obiekt
+  }
+
   get_wypozyczenia_czytelnika_wypozyczanie(id: number) {
     id = 2;
     return this.http.get<Array<Czytelnicy>>('http://krywiak.com.pl/api/bibliotekarka/wypozyczanie/get_wypozyczenia_czytelnika/' + id);
