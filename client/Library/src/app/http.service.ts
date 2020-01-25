@@ -19,8 +19,6 @@ export class HttpService {
 
   constructor(private http: HttpClient) {
 
-
-
    }
 
 
@@ -42,6 +40,12 @@ export class HttpService {
     return this.http.get('http://krywiak.com.pl/api/bibliotekarka/wypozyczanie/wypozycz_ksiazke/' + a + '/' + b);
     //post problem przekazac obiekt
   }
+
+  Oddaj_ksiazke2(a: number, b: number) {
+    return this.http.get('http://krywiak.com.pl/api/bibliotekarka/oddawanie/oddaj_ksiazke/' + a + '/' + b);
+    //post problem przekazac obiekt
+  }
+
 
   get_wypozyczenia_czytelnika_wypozyczanie(id: number) {
     id = 2;

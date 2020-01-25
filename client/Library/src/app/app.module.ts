@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './http.service';
 import { KsiegozbiorComponent } from './ksiegozbior/ksiegozbior.component';
 import { CzytelnicyComponent } from './czytelnicy/czytelnicy.component';
-import { WypozyczeniaComponent, WypozyczComponentOkno } from './wypozyczenia/wypozyczenia.component';
+import { WypozyczeniaComponent, WypozyczComponentOkno, OddawanieComponentOkno } from './wypozyczenia/wypozyczenia.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
@@ -23,7 +23,8 @@ import { AlertsModule } from 'angular-alert-module';
     KsiegozbiorComponent,
     CzytelnicyComponent,
     WypozyczeniaComponent,
-    WypozyczComponentOkno
+    WypozyczComponentOkno,
+    OddawanieComponentOkno
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,7 @@ import { AlertsModule } from 'angular-alert-module';
 
   providers: [HttpService],
   bootstrap: [AppComponent],
-  entryComponents: [WypozyczeniaComponent, WypozyczComponentOkno]
+  entryComponents: [WypozyczeniaComponent, WypozyczComponentOkno,OddawanieComponentOkno]
 
 })
 export class AppModule { }

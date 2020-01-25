@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Wypożyczanie książki</h2>
+<h2 mat-dialog-title>Oddawanie książki</h2>
 <mat-dialog-content class="mat-typography">
 
   <form>
@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="col-md-">
-          <button type="submit" (click)="wypozycz_ksiazke()" class="btn btn-primary" >Wypożycz Ksiażkę</button>
+          <button type="submit" (click)="Oddaj_ksiazke()" class="btn btn-primary" >Oddaj Ksiażkę</button>
         </div>
       </div>
 
@@ -29,20 +29,5 @@
     </div>
   </form>
 
-  <table class="table table-hover">
-    <thead>
-      <tr style="font-size: large; background-color: #e9ecef;">
-        <th scope="col">Numer inventarza</th>
-        <th scope="col">Tytuły</th>
-
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let d of dataNazwy">
-        <th>{{d.nr_inwentarza}}</th>
-        <th>{{d.tytul}}</th>
-      </tr>
-    </tbody>
-  </table>
 
 </mat-dialog-content>
