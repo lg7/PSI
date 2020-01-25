@@ -1,153 +1,22 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Czytelnicy, Ksiegozbior, Wypozyczenia, Wypozyczksiazke } from './Interfejsy';
-//import { Observable } from "rxjs/Observable";
-import { Observable, of } from 'rxjs';
-import { HttpService } from '../app/http.service'
+import { Router } from '@angular/router';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
+import { AuthenticationService } from './_services';
+import { User } from './_models';
+
+@Component({ selector: 'app', templateUrl: 'app.component.html' })
 export class AppComponent {
+    currentUser: User;
 
-  constructor(private httpService: HttpService) {
+    constructor(
+        private router: Router,
+        private authenticationService: AuthenticationService
+    ) {
+        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    }
 
-  }
-
-  public dane: any;
-  title = 'Library';
-  biblioteka = 'Biblioteka';
-  adress = "";
-
-  // czytelnicy: Observable<any>;
-  ksiegozbior: Observable<any>;
-  data = [];
-
-  public loadksiegozbior = false;
-  public loadczytelnicy = false;
-  public loadwypozyczenia = false;
-
-  loadKsiegozbior() {
-    this.loadwypozyczenia = false;
-    this.loadczytelnicy = false;
-    this.loadksiegozbior = true;
-  }
-
-  loadCzytelnicy() {
-    this.loadwypozyczenia = false;
-    this.loadksiegozbior = false;
-    this.loadczytelnicy = true;
-  }
-
-  loadWypozyczenia() {
-    this.loadksiegozbior = false;
-    this.loadczytelnicy = false;
-    this.loadwypozyczenia = true;
-  }
-
-
-  // 1. Wypożyczanie książki
-  get_id_czytelnika_wypozyczanie(ImieNazwisko: string) {
-    this.httpService.get_id_czytelnika_wypozyczanie(ImieNazwisko).subscribe(dane => { console.log(dane) });
-  }
-
-  //POST
-
-  wypozycz_ksiazke(id_czytelnika: number, id_książki: number) {
-    const obiekt: Wypozyczksiazke = ({});
-    this.httpService.wypozycz_ksiazke(obiekt, id_czytelnika, id_książki).subscribe(dane => { console.log(dane) });
-  }
-
-  get_wypozyczenia_czytelnika_wypozyczanie(id: number) {
-    this.httpService.get_wypozyczenia_czytelnika_wypozyczanie(id).subscribe((dane) => {
-      this.data = dane;
-
-      console.log(dane);
-    });
-
-  }
-
-  get_imienazwisko_czytelnika_wypozyczanie(id: number) {
-    this.httpService.get_imienazwisko_czytelnika_wypozyczanie(id).subscribe((dane) => { console.log(dane) });
-  }
-
-  get_czytelnicy_wypozyczanie() {
-    this.httpService.get_czytelnicy_wypozyczanie().subscribe(dane => { console.log(dane) });
-  }
-
-
-  //2. Zwracanie ksiażki
-
-  get_id_czytelnika_oddawanie(ImieNazwisko: string) {
-    this.httpService.get_id_czytelnika_oddawanie(ImieNazwisko).subscribe(dane => { console.log(dane) });
-  }
-
-
-  //POST
-  oddaj_ksiazke(id_czytelnika: number, id_książki: number) {
-    const obiekt: Wypozyczksiazke = ({});
-    this.httpService.oddaj_ksiazke(obiekt, id_czytelnika, id_książki).subscribe(dane => { console.log(dane) });
-
-  }
-
-  get_wypozyczenia_czytelnika_oddawanie(id: number) {
-
-
-    this.httpService.get_wypozyczenia_czytelnika_oddawanie(id).subscribe(dane => { console.log(dane) });
-  }
-
-
-  get_imienazwisko_czytelnika_oddawanie(id: number) {
-
-    this.httpService.get_imienazwisko_czytelnika_oddawanie(id).subscribe(dane => { console.log(dane) });
-  }
-
-  get_czytelnicy_oddawanie() {
-    this.httpService.get_czytelnicy_oddawanie().subscribe((dane) => { this.data = dane; console.log(dane) });
-  }
-
-  //3. Wypożyczenia
-
-  get_wypozyczenia() {
-    this.httpService.get_wypozyczenia().subscribe(dane => { console.log(dane) });
-  }
-
-  get_wypozyczenia_nieoddane() {
-    this.httpService.get_wypozyczenia_nieoddane().subscribe(dane => { console.log(dane) });
-  }
-
-
-  //4. Czytelnicy
-   get_id_czytelnika_czytelnicy(ImieNazwisko: string) {
-    this.httpService.get_id_czytelnika_czytelnicy(ImieNazwisko).subscribe(dane => { console.log(dane) });
-  }
-
-  //POST
-  insert_czytelnik(ImieNazwisko: string, klasa: string, uwagi: string) {
-    const obiekt: Wypozyczksiazke = ({});
-    //this.httpService.insert_czytelnik(ImieNazwisko, klasa, uwagi).subscribe(dane => { console.log(dane) });
-  }
-
-  //POST
-  update_czytelnik(IdCzytelnika: string, ImieNazwisko: string, Klasa: string, Uwagi: string) {
-    const obiekt: Wypozyczksiazke = ({});
-    this.httpService.update_czytelnik(obiekt, IdCzytelnika, ImieNazwisko, Klasa, Uwagi).subscribe(dane => { console.log(dane) });
-
-  }
-
-
-  get_czytelnik(id: number) {
-    this.httpService.get_czytelnik(id).subscribe(dane => { console.log(dane) });
-  }
-
-  // 5.Księgozbiór
-  get_ksiegozbior() {
-    this.httpService.get_ksiegozbior().subscribe(dane => {
-
-      console.log(dane);
-    });
-  }
-
+    logout() {
+        this.authenticationService.logout();
+        this.router.navigate(['/login']);
+    }
 }
