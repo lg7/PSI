@@ -1,0 +1,293 @@
+<style>
+  /* BASIC */
+
+  html {
+    background-color: #56baed;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+  }
+
+  a {
+    color: #92badd;
+    display:inline-block;
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display:inline-block;
+    margin: 40px 8px 10px 8px;
+    color: #cccccc;
+  }
+
+
+
+  /* STRUCTURE */
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+  }
+
+  #formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+  }
+
+  #formFooter {
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+  }
+
+
+
+  /* TABS */
+
+  h2.inactive {
+    color: #cccccc;
+  }
+
+  h2.active {
+    color: #0d0d0d;
+    border-bottom: 2px solid #5fbae9;
+  }
+
+
+
+  /* FORM TYPOGRAPHY*/
+
+  input[type=button], input[type=submit], input[type=reset]  {
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+    background-color: #39ace7;
+  }
+
+  input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+
+  input[type=text] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+  }
+
+  input[type=text]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9;
+  }
+
+  input[type=text]:placeholder {
+    color: #cccccc;
+  }
+
+
+
+  /* ANIMATIONS */
+
+  /* Simple CSS3 Fade-in-down Animation */
+  .fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  @-webkit-keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+
+  /* Simple CSS3 Fade-in Animation */
+  @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+  .fadeIn {
+    opacity:0;
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+  }
+
+  .fadeIn.first {
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+  }
+
+  .fadeIn.second {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+  }
+
+  .fadeIn.third {
+    -webkit-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+  }
+
+  .fadeIn.fourth {
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+  }
+
+  /* Simple CSS3 Fade-in Animation */
+  .underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #56baed;
+    content: "";
+    transition: width 0.2s;
+  }
+
+  .underlineHover:hover {
+    color: #0d0d0d;
+  }
+
+  .underlineHover:hover:after{
+    width: 100%;
+  }
+
+
+
+  /* OTHERS */
+
+  *:focus {
+      outline: none;
+  }
+
+  #icon {
+    width:60%;
+  }
+
+  </style>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
+
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzFfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjQuNDI4ODM4ZS0wMDQiIHkxPSIyNTgiIHgyPSI1MTEuOTk5NSIgeTI9IjI1OCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDUxNCkiPgoJPHN0b3Agb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBGMkZFIi8+Cgk8c3RvcCBvZmZzZXQ9IjAuMDIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDNFRkZFIi8+Cgk8c3RvcCBvZmZzZXQ9IjAuMjkzIiBzdHlsZT0ic3RvcC1jb2xvcjojMjREMkZFIi8+Cgk8c3RvcCBvZmZzZXQ9IjAuNTU0IiBzdHlsZT0ic3RvcC1jb2xvcjojM0NCREZFIi8+Cgk8c3RvcCBvZmZzZXQ9IjAuNzk2IiBzdHlsZT0ic3RvcC1jb2xvcjojNEFCMEZFIi8+Cgk8c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiM0RkFDRkUiLz4KPC9saW5lYXJHcmFkaWVudD4KPHBhdGggc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8xXyk7IiBkPSJNNDMxLDQzMmMtMTEuMDQ2LDAtMjAtOC45NTQtMjAtMjBzOC45NTQtMjAsMjAtMjBzMjAsOC45NTQsMjAsMjBTNDQyLjA0Niw0MzIsNDMxLDQzMnogICBNNDk2LjY4OSwzNDQuNjA3Yy04LjU2MS0xOS4xNS0yNy44NDUtMzEuNTU4LTQ5LjE3Ni0zMS42MDdoLTYyLjM3MmMtMC4wNDUsMC0wLjA4NywwLTAuMTMzLDBjLTIyLjUsMC00Mi4xMywxMy4yNi01MC4wMjksMzMuODA3ICBjLTEuMDUxLDIuNzM0LTIuMzM2LDYuMTc4LTMuNjc3LDEwLjE5M0gyMDAuMzU2Yy01LjQwNywwLTEwLjU4MywyLjE4OS0xNC4zNSw2LjA2OGwtMzQuMzU2LDM1LjM4OCAgYy03LjU2Nyw3Ljc5NC03LjUyOSwyMC4yMDMsMC4wODUsMjcuOTVsMzUsMzUuNjEyYzMuNzYsMy44MjYsOC45LDUuOTgxLDE0LjI2NCw1Ljk4MWg2NWMxMS4wNDYsMCwyMC04Ljk1NCwyMC0yMHMtOC45NTQtMjAtMjAtMjAgIGgtNTYuNjE0bC0xNS40MjgtMTUuNjk4TDIwOC44MTQsMzk3aDEzNy40OTFjOS4yMTQsMCwxNy4yMzUtNi4yOTUsMTkuNDI2LTE1LjI0NGMxLjYxOC02LjYwNywzLjY0OC0xMi45NTksNi41ODQtMjAuNTk2ICBjMS45MzYtNS4wMzYsNi43OTgtOC4xNiwxMi43NDEtOC4xNmMwLjAxMywwLDAuMDI2LDAsMC4wMzksMGg2Mi4zNzFjNS42NTYsMC4wMTMsMTAuNTI0LDMuMDUzLDEyLjcwNSw3LjkzMiAgYzUuMzY5LDEyLjAxMiwxMS43OCwzMC42MDgsMTEuODI4LDUwLjk4NmMwLjA0OCwyMC41MjktNi4zNTYsMzkuNTUxLTExLjczOSw1MS44OTRjLTIuMTcsNC45NzgtNy4wNzksOC4xODgtMTIuNTYsOC4xODggIGMtMC4wMTEsMC0wLjAyMiwwLTAuMDMzLDBoLTYzLjEyNWMtNS41MzMtMC4wMTMtMTAuNzE2LTMuNTczLTEyLjg5Ni04Ljg1OGMtMi4zMzktNS42NzEtNC4zNjYtMTIuMTQ2LTYuMTk3LTE5Ljc5NyAgYy0yLjU3MS0xMC43NDItMTMuMzY3LTE3LjM2Ni0yNC4xMDUtMTQuNzk2Yy0xMC43NDMsMi41NzEtMTcuMzY3LDEzLjM2NC0xNC43OTYsMjQuMTA2YzIuMzIxLDkuNjk5LDQuOTc4LDE4LjExOCw4LjEyMSwyNS43MzggIGM4LjM5OSwyMC4zNjQsMjcuOTM5LDMzLjU1NSw0OS44MjcsMzMuNjA2aDYzLjEyNWMwLjA0MywwLDAuMDgzLDAsMC4xMjYsMGMyMS4zNTEtMC4wMDEsNDAuNjQ3LTEyLjYzLDQ5LjE4LTMyLjIwMSAgYzYuOTEyLTE1Ljg1MSwxNS4xMzctNDAuNTExLDE1LjA3Mi02Ny45NzVDNTExLjkzNSwzODQuNDM0LDUwMy42MzgsMzYwLjE1Myw0OTYuNjg5LDM0NC42MDd6IE0xNTEuNSw0OTJjMCwxMS4wNDYtOC45NTQsMjAtMjAsMjAgIEg2MC42OTNjLTE4LjMyOSwwLTM1LjQ3Mi04LjE1My00Ny4wMzItMjIuMzY5QzIuMDQyLDQ3NS4zNDUtMi40NjQsNDU2Ljc4OSwxLjI5OCw0MzguNzIzICBjMTIuMDAzLTU3LjY1Nyw0My44LTExMC4xMjYsODkuNTMyLTE0Ny43NDNjMjQuOTQyLTIwLjUxNiw1My40NDItMzYuMDY0LDgzLjgxMy00Ni4wNjJDMTQxLjQ5MiwyMjAuMDkyLDEyMCwxODAuNTA5LDEyMCwxMzYgIEMxMjAsNjEuMDEsMTgxLjAwOSwwLDI1NiwwczEzNiw2MS4wMSwxMzYsMTM2YzAsNDQuNDY5LTIxLjQ1NSw4NC4wMjEtNTQuNTU2LDEwOC44NTFjMy4zNSwxLjEwNCw2LjY4NCwyLjI2OCw5Ljk5NSwzLjUxMiAgYzEwLjM0MSwzLjg4MywxNS41NzYsMTUuNDE0LDExLjY5MywyNS43NTRjLTMuODgzLDEwLjM0MS0xNS40MTQsMTUuNTc4LTI1Ljc1NCwxMS42OTNjLTIzLjEwNy04LjY3Ny00Ny4zODMtMTMuMzUtNzIuMjM2LTEzLjkxNyAgYy0xLjcwOCwwLjA2NC0zLjQyLDAuMTA3LTUuMTQyLDAuMTA3Yy0xLjcwNywwLTMuNDA0LTAuMDQyLTUuMDk3LTAuMTA1Yy0xMDEuNjM2LDIuMzY0LTE4OS42NzYsNzUuMjE5LTIxMC40NDUsMTc0Ljk4ICBjLTEuMjk3LDYuMjI5LDAuMjQ4LDEyLjYxMyw0LjIzNiwxNy41MTljMi4zMSwyLjg0MSw3LjQ2MSw3LjYwNiwxNS45OTksNy42MDZIMTMxLjVDMTQyLjU0Niw0NzIsMTUxLjUsNDgwLjk1NCwxNTEuNSw0OTJ6ICAgTTI1MS4zMTEsMjMxLjg4NGMxLjU2Mi0wLjAyOCwzLjEyNS0wLjA1MSw0LjY4OS0wLjA1MWMxLjU2LDAsMy4xMTcsMC4wMjQsNC42NzQsMC4wNTJDMzExLjQ0NiwyMjkuNDM4LDM1MiwxODcuMzY3LDM1MiwxMzYgIGMwLTUyLjkzNS00My4wNjUtOTYtOTYtOTZzLTk2LDQzLjA2NS05Niw5NkMxNjAsMTg3LjM2MiwyMDAuNTQ2LDIyOS40MywyNTEuMzExLDIzMS44ODR6Ii8+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+      </div>
+
+      <!-- Login Form -->
+      <form>
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="Nazwa użytkownika">
+        <input type="text" id="password" class="fadeIn third" name="login" placeholder="Hasło">
+        <input type="submit" class="fadeIn fourth" value="Zaloguj">
+      </form>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Zapomniałeś hasła?</a>
+      </div>
+
+    </div>
+  </div>
