@@ -1,55 +1,57 @@
-<form  (ngSubmit)="onSubmit()">
-  <div class="container">
+<form (ngSubmit)="onSubmit()">
+  <div class="content">
     <div class="row">
       <div class="col-sm">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
           </div>
           <input type="text" class="form-control" placeholder="Imie i nazwisko" aria-label="Klasa"
-            aria-describedby="basic-addon1"  [formControl]="imie">
+            aria-describedby="basic-addon1" [formControl]="imie">
         </div>
       </div>
       <div class="col-sm">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
           </div>
-          <input type="text" class="form-control" placeholder="Klasa" aria-label="Klasa"
-            aria-describedby="basic-addon1"  [formControl]="klasa">
+          <input type="text" class="form-control" placeholder="Klasa" aria-label="Klasa" aria-describedby="basic-addon1"
+            [formControl]="klasa">
         </div>
       </div>
       <div class="col-sm">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
           </div>
-          <input type="text" class="form-control" placeholder="Uwagi" aria-label="Uwagi"
-            aria-describedby="basic-addon1"  [formControl]="uwagi">
+          <input type="text" class="form-control" placeholder="Uwagi" aria-label="Uwagi" aria-describedby="basic-addon1"
+            [formControl]="uwagi">
         </div>
       </div>
       <div class="col-md-">
-        <button type="submit" class="btn btn-primary" >Dodaj nowego czytelnika</button>
+        <button type="submit" class="btn btn-primary">Dodaj nowego czytelnika</button>
       </div>
     </div>
   </div>
 </form>
-
 <br>
 
-<br>
-<table class="table table-hover">
-  <thead>
-    <tr style="font-size: large; background-color: #e9ecef;">
-      <th scope="col">Imie i nazwisko</th>
-      <th scope="col">Klasa</th>
-      <th scope="col">Uwagi</th>
+<div class="container">
+  <div class="page_content">
+    <br>
+    <table class="table table-hover">
+      <thead>
+        <tr style="font-size: large; background-color: #e9ecef;">
+          <th scope="col">Imie i nazwisko</th>
+          <th scope="col">Klasa</th>
+          <th scope="col">Uwagi</th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let d of data">
-      <th>{{d.imie_nazwisko}}</th>
-      <th>{{d.klasa}}</th>
-      <th>{{d.Uwagi}} </th>
-    </tr>
-  </tbody>
-</table>
-
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of data">
+          <th>{{d.imie_nazwisko}}</th>
+          <th>{{d.klasa}}</th>
+          <th>{{d.Uwagi}} </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent, AppComponentOkno } from './app.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpService } from './http.service';
@@ -27,7 +27,6 @@ import { fakeBackendProvider } from './_helpers';
 import { routing }        from './app.routing';
 
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-import { StronaGlownaComponent } from './strona-glowna/strona-glowna.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +41,7 @@ import { StronaGlownaComponent } from './strona-glowna/strona-glowna.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    StronaGlownaComponent
+    AppComponentOkno
 
   ],
   imports: [
@@ -64,7 +63,7 @@ import { StronaGlownaComponent } from './strona-glowna/strona-glowna.component';
       HttpService,
       fakeBackendProvider
     ],
-  entryComponents: [WypozyczeniaComponent, WypozyczComponentOkno, OddawanieComponentOkno],
+  entryComponents: [WypozyczeniaComponent, WypozyczComponentOkno, OddawanieComponentOkno, AppComponentOkno ],
   bootstrap: [AppComponent]
 
 

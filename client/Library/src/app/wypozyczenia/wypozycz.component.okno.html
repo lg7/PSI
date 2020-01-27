@@ -1,6 +1,5 @@
 <h2 mat-dialog-title>Wypożyczanie książki</h2>
 <mat-dialog-content class="mat-typography">
-
   <form>
     <div class="container">
       <div class="row">
@@ -8,41 +7,45 @@
           <div class="input-group mb-3">
             <div class="input-group-prepend">
             </div>
-            <input type="text" [(ngModel)]="numer_inwentarza2" class="form-control" placeholder="Numer inwentarza" aria-label="Klasa"
-              aria-describedby="basic-addon1"  [formControl]="numer_inwentarza">
+            <input type="text" [(ngModel)]="numer_inwentarza2" class="form-control" placeholder="Numer inwentarza"
+              aria-label="Klasa" aria-describedby="basic-addon1" [formControl]="numer_inwentarza">
           </div>
         </div>
         <div class="col-sm">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
             </div>
-            <input type="text" [(ngModel)]="imie_nazwisko2" class="form-control" placeholder="Imie i nazwisko czytelnika" aria-label="Klasa"
-              aria-describedby="basic-addon1"  [formControl]="imie_nazwisko">
+            <input type="text" [(ngModel)]="imie_nazwisko2" class="form-control"
+              placeholder="Imie i nazwisko czytelnika" aria-label="Klasa" aria-describedby="basic-addon1"
+              [formControl]="imie_nazwisko">
           </div>
         </div>
         <div class="col-md-">
-          <button type="submit" (click)="wypozycz_ksiazke()" class="btn btn-primary" >Wypożycz Ksiażkę</button>
+          <button type="submit" (click)="wypozycz_ksiazke()" class="btn btn-primary">Wypożycz Ksiażkę</button>
         </div>
       </div>
 
-<app-alerts></app-alerts>
+      <app-alerts></app-alerts>
     </div>
   </form>
 
-  <table class="table table-hover">
-    <thead>
-      <tr style="font-size: large; background-color: #e9ecef;">
-        <th scope="col">Numer inventarza</th>
-        <th scope="col">Tytuły</th>
+  <div class="container">
+    <div class="page_content">
+      <table class="table table-hover">
+        <thead>
+          <tr style="font-size: large; background-color: #e9ecef;">
+            <th scope="col">Numer inventarza</th>
+            <th scope="col">Tytuły</th>
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let d of dataNazwy">
-        <th>{{d.nr_inwentarza}}</th>
-        <th>{{d.tytul}}</th>
-      </tr>
-    </tbody>
-  </table>
-
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let d of dataNazwy">
+            <th>{{d.nr_inwentarza}}</th>
+            <th>{{d.tytul}}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </mat-dialog-content>

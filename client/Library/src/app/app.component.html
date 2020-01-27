@@ -1,21 +1,15 @@
-
 <!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+<nav class="navbar navbar-expand navbar-dark" *ngIf="currentUser" style="background-color: #1976d2">
   <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="/">Biblioteka</a>
-    <a class="nav-item nav-link" (click)="logout()">Wyloguj</a>
+    <a class="nav-item nav-link color" routerLink="/" style="color: white;">Biblioteka</a>
+    <a class="nav-item nav-link" (click)="logout()" style="color: white;">Wyloguj</a>
+    <a class="nav-item nav-link" style="color: white;" (click)="openDialogwypozycz()">Użytkownicy</a>
   </div>
 </nav>
 
 <!-- main app container -->
-  <div class="container" >
-    <div class="row">
-      <div class="col-sm-6 offset-sm-3">
-        <alert></alert>
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-  </div>
+<alert></alert>
+<router-outlet></router-outlet>
 
 
 <!-- credits -->
@@ -24,4 +18,3 @@
     <a target="_top">Krzysiek Jakub Łukasz Adrian</a>
   </p>
 </div>
-
